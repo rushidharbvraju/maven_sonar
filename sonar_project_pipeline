@@ -1,13 +1,13 @@
 pipeline {
     agent any
     tools {
-        maven 'maven'
+        maven 'maven1'
     }
     
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/srikanth637/maven_sonar.git' // Use your Git repository URL
+                git 'https://github.com/rushidharbvraju/maven_sonar.git' // Use your Git repository URL
             }
         }
         
@@ -25,7 +25,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             environment {
-                SONAR_HOST_URL = 'http://54.152.124.11:9000' // Replace with your SonarQube URL
+                SONAR_HOST_URL = 'http://13.232.73.51:9000' // Replace with your SonarQube URL
                 SONAR_AUTH_TOKEN = credentials('sonar-token') // Store your token in Jenkins credentials
             }
             steps {
